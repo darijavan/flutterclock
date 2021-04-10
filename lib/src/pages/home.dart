@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutterclock/src/constants/colors.dart';
+import 'package:flutterclock/src/widgets/clock.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -8,6 +10,14 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: BACKGROUND_COLOR,
+      body: Center(
+        child: Clock(
+          smooth: true,
+          size: Size.fromRadius(150),
+        ),
+      ),
+    );
   }
 }
