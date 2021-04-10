@@ -72,18 +72,18 @@ class _ClockPainter extends CustomPainter {
           centerY,
         ),
         fullRadius = min(centerX, centerY),
-        innerRadius = fullRadius * 0.95,
+        innerRadius = fullRadius * 0.75,
         centerRadius = 14.0 * scale,
         innerCircleBrush = Paint()..color = Color(0xff444974),
         outlineBrush = Paint()
           ..color = Color(0xffeaecff)
           ..style = PaintingStyle.stroke
-          ..strokeWidth = 12 * scale * scale,
+          ..strokeWidth = 10 * scale,
         centerDotBrush = Paint()..color = Color(0xffeaecff),
         secHandBrush = Paint()
           ..color = Colors.orange[300]
           ..strokeCap = StrokeCap.round
-          ..strokeWidth = 6 * scale * scale,
+          ..strokeWidth = 6 * scale,
         minHandBrush = Paint()
           ..shader = RadialGradient(
             colors: [
@@ -97,7 +97,7 @@ class _ClockPainter extends CustomPainter {
             ),
           )
           ..strokeCap = StrokeCap.round
-          ..strokeWidth = 10 * scale * scale,
+          ..strokeWidth = 10 * scale,
         hourHandBrush = Paint()
           ..shader = RadialGradient(
             colors: [
@@ -111,17 +111,17 @@ class _ClockPainter extends CustomPainter {
             ),
           )
           ..strokeCap = StrokeCap.round
-          ..strokeWidth = 14 * scale * scale,
+          ..strokeWidth = 14 * scale,
         dashBrush = Paint()
           ..color = Color(0xffeaecff)
           ..strokeCap = StrokeCap.round
-          ..strokeWidth = 2 * scale * scale;
+          ..strokeWidth = 2 * scale;
 
     // Draw the inner circle
-    canvas.drawCircle(center, innerRadius * scale, innerCircleBrush);
+    canvas.drawCircle(center, innerRadius, innerCircleBrush);
 
     // Draw the outline
-    canvas.drawCircle(center, innerRadius * scale, outlineBrush);
+    canvas.drawCircle(center, innerRadius, outlineBrush);
 
     // Angle calculation
     var secAngle = !smooth
@@ -136,27 +136,27 @@ class _ClockPainter extends CustomPainter {
 
     // Draw the hour hand
     var hourHandX =
-            centerX + innerRadius * 0.35 * scale * cos(hourAngle * pi / 180),
+            centerX + innerRadius * 0.35 * cos(hourAngle * pi / 180),
         hourHandY =
-            centerY + innerRadius * 0.35 * scale * sin(hourAngle * pi / 180);
+            centerY + innerRadius * 0.35 * sin(hourAngle * pi / 180);
     canvas.drawLine(center, Offset(hourHandX, hourHandY), hourHandBrush);
 
     // Draw the minute hand
     var minHandX =
-            centerX + innerRadius * 0.55 * scale * cos(minAngle * pi / 180),
+            centerX + innerRadius * 0.55 * cos(minAngle * pi / 180),
         minHandY =
-            centerY + innerRadius * 0.55 * scale * sin(minAngle * pi / 180);
+            centerY + innerRadius * 0.55 * sin(minAngle * pi / 180);
     canvas.drawLine(center, Offset(minHandX, minHandY), minHandBrush);
 
     // Draw the second hand
     var secHandX =
-            centerX + innerRadius * 0.75 * scale * cos(secAngle * pi / 180),
+            centerX + innerRadius * 0.75 * cos(secAngle * pi / 180),
         secHandY =
-            centerY + innerRadius * 0.75 * scale * sin(secAngle * pi / 180);
+            centerY + innerRadius * 0.75 * sin(secAngle * pi / 180);
     canvas.drawLine(center, Offset(secHandX, secHandY), secHandBrush);
 
     // Draw the center dot
-    canvas.drawCircle(center, centerRadius * scale, centerDotBrush);
+    canvas.drawCircle(center, centerRadius, centerDotBrush);
 
     // Draw the outer dashes
     var outerCircleRadius = fullRadius, innerCircleRadius = fullRadius * 0.9;
