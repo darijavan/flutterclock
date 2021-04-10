@@ -143,16 +143,16 @@ class _ClockPainter extends CustomPainter {
 
     // Draw the minute hand
     var minHandX =
-            centerX + innerRadius * 0.6 * scale * cos(minAngle * pi / 180),
+            centerX + innerRadius * 0.55 * scale * cos(minAngle * pi / 180),
         minHandY =
-            centerY + innerRadius * 0.6 * scale * sin(minAngle * pi / 180);
+            centerY + innerRadius * 0.55 * scale * sin(minAngle * pi / 180);
     canvas.drawLine(center, Offset(minHandX, minHandY), minHandBrush);
 
     // Draw the second hand
     var secHandX =
-            centerX + innerRadius * 0.8 * scale * cos(secAngle * pi / 180),
+            centerX + innerRadius * 0.75 * scale * cos(secAngle * pi / 180),
         secHandY =
-            centerY + innerRadius * 0.8 * scale * sin(secAngle * pi / 180);
+            centerY + innerRadius * 0.75 * scale * sin(secAngle * pi / 180);
     canvas.drawLine(center, Offset(secHandX, secHandY), secHandBrush);
 
     // Draw the center dot
